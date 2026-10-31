@@ -1,0 +1,10 @@
+{"question": "How many days do I have to return a physical book?", "expected_file": "return_policy.txt", "expected_keywords": ["30 days"]}
+{"question": "When are refunds processed after you receive my item?", "expected_file": "return_policy.txt", "expected_keywords": ["3 to 5 business days"]}
+{"question": "Can I get a refund on an e-book I already downloaded?", "expected_file": "return_policy.txt", "expected_keywords": ["final sale"]}
+{"question": "How much does standard shipping cost?", "expected_file": "shipping_faq.txt", "expected_keywords": ["$4.99"]}
+{"question": "What time must I place an express order to ship the same day?", "expected_file": "shipping_faq.txt", "expected_keywords": ["2:00 PM"]}
+{"question": "Do you ship to Canada and what does it cost?", "expected_file": "shipping_faq.txt", "expected_keywords": ["Canada"]}
+{"question": "What are the store hours on Sunday?", "expected_file": "pricing_and_hours.txt", "expected_keywords": ["11:00 AM"]}
+{"question": "How much does the Northwind membership cost per month?", "expected_file": "pricing_and_hours.txt", "expected_keywords": ["$9.99"]}
+{"question": "What is included in the VIP author event package?", "expected_file": "pricing_and_hours.txt", "expected_keywords": ["signed copy"]}
+{"question": "Does drip coffee come with free refills?", "expected_file": "pricing_and_hours.txt", "expected_keywords": ["free refills"]}

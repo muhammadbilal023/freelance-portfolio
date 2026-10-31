@@ -1,0 +1,26 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Generated platform configs (platform folders themselves are committed;
+# run `flutter create .` after cloning to regenerate any missing ones)
+**/android/.gradle/
+**/android/local.properties
+**/ios/Pods/
+**/ios/.symlinks/
+
+# Secrets are injected via --dart-define, never committed
+*.jks
+*.keystore
+key.properties
+GoogleService-Info.plist
+google-services.json

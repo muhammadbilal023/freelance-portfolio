@@ -1,0 +1,18 @@
+Northwind Books — Return & Refund Policy
+
+You may return any physical book or merchandise within 30 days of purchase for a
+full refund to your original payment method. A receipt or order number is
+required for all returns.
+
+Items returned after 30 days are eligible for store credit only, at the current
+selling price. Store credit never expires.
+
+Digital products (e-books, audiobooks, and gift cards) are final sale and cannot
+be refunded once the download link has been sent. If a digital item is damaged or
+fails to download, contact support within 14 days for a replacement.
+
+Signed copies and special-order items can be returned only if they are defective,
+because they cannot be resold as new.
+
+To start a return, email returns@northwindbooks.example with your order number.
+Refunds are processed within 3 to 5 business days of receiving the item.

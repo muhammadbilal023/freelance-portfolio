@@ -1,0 +1,1 @@
+"""AskDocs backend application package."""

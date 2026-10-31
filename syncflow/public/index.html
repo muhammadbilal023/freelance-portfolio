@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SyncFlow — Admin Dashboard</title>
+    <link rel="stylesheet" href="./admin.css" />
+  </head>
+  <body>
+    <header>
+      <h1>SyncFlow <span class="subtitle">Integration Hub</span></h1>
+      <div id="health" class="health">loading…</div>
+    </header>
+
+    <main>
+      <section class="cards" id="queue-cards" aria-label="Queue summary"></section>
+
+      <section>
+        <h2>Failures (dead letters)</h2>
+        <table id="dead-letters">
+          <thead>
+            <tr><th>#</th><th>Job</th><th>Error</th><th>Attempts</th><th>Died at</th><th></th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Recent jobs</h2>
+        <table id="jobs">
+          <thead>
+            <tr><th>#</th><th>Type</th><th>Status</th><th>Attempts</th><th>Last error</th><th>Updated</th><th></th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Recent webhook events</h2>
+        <table id="events">
+          <thead>
+            <tr><th>#</th><th>Provider</th><th>External id</th><th>Event type</th><th>Status</th><th>Received</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>Auto-refreshes every 5 s · API under <code>/admin/api</code></footer>
+    <script src="./admin.js"></script>
+  </body>
+</html>

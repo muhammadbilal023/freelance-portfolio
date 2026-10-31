@@ -1,0 +1,13 @@
+# Dart / Flutter
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# pubspec.lock is committed for reproducible bonus-app builds + CI caching.
+
+# IDE
+.idea/
+.vscode/
+*.iml

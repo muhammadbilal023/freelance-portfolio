@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AskDocs — Document Q&A</title>
+    <link rel="stylesheet" href="./chat.css" />
+  </head>
+  <body>
+    <header>
+      <h1>AskDocs <span class="subtitle">AI Support &amp; Document Q&amp;A</span></h1>
+      <div id="health" class="health">connecting…</div>
+    </header>
+
+    <main>
+      <section class="sidebar" aria-label="Knowledge base">
+        <h2>Knowledge base</h2>
+        <form id="upload-form">
+          <input type="file" id="upload-input" accept=".pdf,.docx,.txt" />
+          <button type="submit" class="primary">Upload</button>
+        </form>
+        <p id="upload-status" class="status"></p>
+        <ul id="doc-list" class="doc-list"></ul>
+
+        <h2>Session</h2>
+        <div class="row">
+          <button id="new-session" class="ghost">New conversation</button>
+        </div>
+        <div class="row">
+          <button id="talk-human" class="ghost">Talk to a human</button>
+        </div>
+        <p id="session-status" class="status"></p>
+      </section>
+
+      <section class="chat" aria-label="Chat">
+        <div id="messages" class="messages" role="log" aria-live="polite"></div>
+        <form id="chat-form" class="composer">
+          <textarea
+            id="question"
+            rows="2"
+            placeholder="Ask about the uploaded documents…"
+            autocomplete="off"
+          ></textarea>
+          <button type="submit" class="primary" id="send">Ask</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>Answers are grounded only in your documents · citations shown under each reply</footer>
+    <script src="./chat.js"></script>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  changes:
+    name: Detect changed projects
+    runs-on: ubuntu-latest
+    outputs:
+      backend: ${{ steps.filter.outputs.backend }}
+      mobile: ${{ steps.filter.outputs.mobile }}
+      syncflow: ${{ steps.filter.outputs.syncflow }}
+      askdocs: ${{ steps.filter.outputs.askdocs }}
+      askdocsMobile: ${{ steps.filter.outputs.askdocsMobile }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            backend:
+              - 'book-easy/backend/**'
+              - '.github/workflows/ci.yml'
+            mobile:
+              - 'book-easy/mobile/**'
+              - '.github/workflows/ci.yml'
+            syncflow:
+              - 'syncflow/**'
+              - '.github/workflows/ci.yml'
+            askdocs:
+              - 'askdocs/backend/**'
+              - '.github/workflows/ci.yml'
+            askdocsMobile:
+              - 'askdocs/mobile/**'
+              - '.github/workflows/ci.yml'
+
+  book-easy-backend:
+    name: BookEasy backend — lint & test
+    needs: changes
+    if: needs.changes.outputs.backend == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: book-easy/backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: book-easy/backend/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Type check
+        run: npm run typecheck
+      - name: Unit tests
+        run: npm test
+
+  book-easy-mobile:
+    name: BookEasy mobile — analyze & test
+    needs: changes
+    if: needs.changes.outputs.mobile == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: book-easy/mobile
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+          cache-dependency-path: book-easy/mobile/pubspec.lock
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Analyze
+        run: flutter analyze --fatal-infos
+      - name: Format check
+        run: dart format --output=none --set-exit-if-changed .
+      - name: Tests
+        run: flutter test --coverage
+
+  syncflow:
+    name: SyncFlow — lint & test
+    needs: changes
+    if: needs.changes.outputs.syncflow == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: syncflow
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: syncflow/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Type check
+        run: npm run typecheck
+      - name: Unit tests
+        run: npm test
+
+  askdocs-backend:
+    name: AskDocs backend — lint & test
+    needs: changes
+    if: needs.changes.outputs.askdocs == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: askdocs/backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: askdocs/backend/requirements-dev.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt -r requirements-dev.txt
+      - name: Lint (ruff)
+        run: ruff check app tests
+      - name: Format check (ruff)
+        run: ruff format --check app tests
+      - name: Tests (pytest, no API keys required)
+        run: pytest -q
+
+  askdocs-mobile:
+    name: AskDocs mobile (Flutter) — analyze & test
+    needs: changes
+    if: needs.changes.outputs.askdocsMobile == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: askdocs/mobile
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+          cache-dependency-path: askdocs/mobile/pubspec.lock
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Analyze
+        run: flutter analyze --fatal-infos
+      - name: Format check
+        run: dart format --output=none --set-exit-if-changed .
+      - name: Tests
+        run: flutter test

@@ -1,0 +1,45 @@
+name: book_easy
+description: BookEasy — booking & payments app for service businesses (salon, clinic, tutor).
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management
+  flutter_riverpod: ^2.5.1
+
+  # Navigation
+  go_router: ^14.2.3
+
+  # Firebase
+  firebase_core: ^3.3.0
+  firebase_auth: ^5.1.4
+  cloud_firestore: ^5.2.1
+  firebase_messaging: ^15.0.4
+  google_sign_in: ^6.2.1
+
+  # Payments (Stripe test mode)
+  flutter_stripe: ^11.1.0
+
+  # Networking & platform
+  http: ^1.2.2
+  connectivity_plus: ^6.0.5
+
+  # UI & utils
+  intl: ^0.19.0
+  table_calendar: ^3.1.2
+  logging: ^1.2.0
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true

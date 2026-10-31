@@ -1,0 +1,17 @@
+Northwind Books — Shipping FAQ
+
+Standard shipping costs $4.99 and arrives in 5 to 7 business days within the
+contiguous United States. Standard shipping is FREE on orders over $50.
+
+Express shipping arrives in 1 to 2 business days and costs $12.00. Express orders
+must be placed before 2:00 PM Eastern to ship the same day.
+
+We ship to Canada for a flat $20.00 with an estimated delivery of 10 to 15
+business days. We do not currently ship to other international destinations.
+
+Every order ships with a tracking number sent to the email address on the order.
+Tracking information is active 24 hours after the label is created.
+
+Orders are packed Monday through Saturday. We do not ship on Sundays or on the
+following holidays: New Year's Day, Memorial Day, Independence Day, Labor Day,
+Thanksgiving, and Christmas Day.

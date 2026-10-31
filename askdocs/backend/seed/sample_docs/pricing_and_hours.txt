@@ -1,0 +1,21 @@
+Northwind Books — Pricing, Memberships & Hours
+
+STORE HOURS
+Monday to Saturday: 9:00 AM to 7:00 PM.
+Sunday: 11:00 AM to 5:00 PM.
+The cafe counter closes 30 minutes before the store closes.
+
+MEMBERSHIP
+The Northwind Membership costs $9.99 per month and includes a 10% discount on
+every purchase, free standard shipping on all orders, and early access to author
+events. Members can cancel at any time; the discount applies until the end of the
+current billing period.
+
+CAFE MENU
+House latte: $4.50. Espresso: $3.00. Drip coffee: $2.75 (free refills).
+Ceramic mug of drip coffee served after 12:00 PM: $1.50 for members.
+
+EVENT TICKETS
+General admission to author readings is $15.00. The VIP package is $40.00 and
+includes a signed copy of the book, front-row seating, and a reception with the
+author. Student tickets are half price with a valid ID.
