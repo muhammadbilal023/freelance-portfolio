@@ -52,5 +52,3 @@ Pick a project directory and follow its README:
 - [BookEasy →](./book-easy/README.md)
 - [SyncFlow →](./syncflow/README.md)
 - [AskDocs →](./askdocs/README.md)
-
-Each README ends with the client value it delivers and how it could be extended. For a quick walkthrough, see the [Demo Video Checklist](./DEMO_VIDEO_CHECKLIST.md) — a ~3-minute recording script per project.
